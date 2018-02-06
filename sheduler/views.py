@@ -1,9 +1,20 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from django.views.generic import TemplateView, ListView
+from .models import Timetable, Faculty
 
-from django.shortcuts import render
-from django.http import HttpResponse
+
+class index(ListView):
+    model = Timetable
+    template_name = "sheduler/index.html"
+    context_object_name = 'subjects'
 
 
-def index(request):
-    return HttpResponse("<h1>Hello This is Sheduler</h1>")
+class faculty(ListView):
+    model = Faculty
+    template_name = "sheduler/faculty_name.html"
+    context_object_name = 'faculty'
+
+
+class temp(TemplateView):
+    template_name = "sheduler/temp.html"

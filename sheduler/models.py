@@ -11,12 +11,12 @@ class Faculty_Type(models.Model):
 
 
 class Faculty(models.Model):
-    Name = models.CharField(max_length=200)
-    Qualification = models.CharField(max_length=300)
+    name = models.CharField(max_length=200)
+    Qualification = models.CharField(max_length=300, default='MCA')
     faculty_type = models.ForeignKey(Faculty_Type)
 
     def __str__(self):
-        return self.Name
+        return self.name
 
 
 class Semester(models.Model):
@@ -33,7 +33,7 @@ class Subject(models.Model):
     subject_name = models.CharField(max_length=250)
     semester = models.ForeignKey(Semester)
     faculty = models.ForeignKey(Faculty)
-    credits = models.IntegerField()
+    credits = models.IntegerField(default=0)
 
     def __str__(self):
         return self.subject_code + ' - ' + self.subject_name
