@@ -1,0 +1,18 @@
+*.pyc
+.idea/
+*.egg-info
+.env
+.venv
+
+# Django
+*.mo
+
+# Logs
+*console.log
+
+# Databases or SQL related stuff
+*.sql
+*.db
+.*.swp
+dump.rdb
+/dumps/
