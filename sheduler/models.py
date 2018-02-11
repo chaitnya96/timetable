@@ -3,7 +3,7 @@
 from django.db import models
 
 
-class Faculty_Type(models.Model):
+class FacultyType(models.Model):
     faculty_type = models.CharField(max_length=250)
 
     def __str__(self):
@@ -13,7 +13,7 @@ class Faculty_Type(models.Model):
 class Faculty(models.Model):
     name = models.CharField(max_length=200)
     Qualification = models.CharField(max_length=300, default='MCA')
-    faculty_type = models.ForeignKey(Faculty_Type)
+    faculty_type = models.ForeignKey(FacultyType)
 
     def __str__(self):
         return self.name
@@ -25,7 +25,9 @@ class Semester(models.Model):
     class_location = models.CharField(max_length=50)
 
     def __str__(self):
-        return 'Semester-'+str(self.sem_no) + ', ' + 'Division-' + str(self.division) + ', ' + str(self.class_location)
+        return 'Semester-'+str(
+            self.sem_no) + ', ' + 'Division-' + str(
+            self.division) + ', ' + str(self.class_location)
 
 
 class Subject(models.Model):
@@ -49,21 +51,21 @@ class Lecture(models.Model):
 
 
 class Timetable(models.Model):
-    Monday = 'Monday'
-    Tuesday = 'Tuesday'
-    Wednesday = 'Wednesday'
-    Thursday = 'Thursday'
-    Friday = 'Friday'
-    Saturday = 'Saturday'
-    Sunday = 'Sunday'
+    MONDAY = 'Monday'
+    TUESDAY = 'Tuesday'
+    WEDNESDAY = 'Wednesday'
+    THURSDAY = 'Thursday'
+    FRIDAY = 'Friday'
+    SATURDAY = 'Saturday'
+    SUNDAY = 'Sunday'
 
     day_choice = (
-        (Monday, 'Monday'),
-        (Tuesday, 'Tuesday'),
-        (Wednesday, 'Wednesday'),
-        (Thursday, 'Thursday'),
-        (Friday, 'Friday'),
-        (Saturday, 'Saturday'),
+        (MONDAY, 'Monday'),
+        (TUESDAY, 'Tuesday'),
+        (WEDNESDAY, 'Wednesday'),
+        (THURSDAY, 'Thursday'),
+        (FRIDAY, 'Friday'),
+        (SATURDAY, 'Saturday'),
     )
     day = models.CharField(
         choices=day_choice,
