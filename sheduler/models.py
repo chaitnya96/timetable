@@ -20,20 +20,20 @@ class Faculty(models.Model):
 
 
 class Semester(models.Model):
-    sem_no = models.IntegerField()
+    semester_number = models.IntegerField()
     division = models.CharField(max_length=1)
     class_location = models.CharField(max_length=50)
 
     def __str__(self):
         return 'Semester-'+str(
-            self.sem_no) + ', ' + 'Division-' + str(
+            self.semester_number) + ', ' + 'Division-' + str(
             self.division) + ', ' + str(self.class_location)
 
 
 class Subject(models.Model):
     subject_code = models.CharField(max_length=50)
     subject_name = models.CharField(max_length=250)
-    semester = models.ForeignKey(Semester)
+    semester = models.IntegerField()
     faculty = models.ForeignKey(Faculty)
     credits = models.IntegerField(default=0)
 
