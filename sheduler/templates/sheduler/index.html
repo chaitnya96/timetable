@@ -5,29 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>     -->
     {% block title %} Timetable {% endblock %}
 </head>
 <body>
 
-    {% block body %}
- <!--   <h3>Timetable</h3>
-    {% for temp in subjects %}
-    <div class="container">
-        <h2>Basic Table</h2>
-        <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
-        <table class="table">
-            <tr><td>{{ temp.subject }}</td></tr>
-        </table>
-    </div>
+{% block body %}
+        <div class="container" id="abb">
+        <input type="button" name="get" value="get" id="get">
 
-
-    {% endfor %}-->
-    <div class="container">
-    <input type="submit" id="get" value="get">
         </div>
-    <script src="/static/js/main.js"></script>
+        <script src="/static/js/main.js"></script>
 {% endblock %}
 </body>
 </html>
