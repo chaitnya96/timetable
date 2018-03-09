@@ -16,9 +16,20 @@ from sheduler.forms import ResetPasswordForm
 from sheduler.models import UserResetPassword
 from sheduler.permission import UserPermissions
 from exceptions_utils import ValidationException
-from serializers import UserSerializer, UserProfileSerializer
+from serializers import UserProfileSerializer
+
 
 # Create your views here.
+@api_view(['POST'])
+@permission_classes((AllowAny,))
+def faculty(request):
+    if request.method == 'POST':
+        try:
+            data = request.data
+            faculty_data = utils.create_faculty(data)  # Creates genre with request data.
+            return Response(faculty_data, status=status.HTTP_201_CREATED)
+        except ValidationException as e:  # Generic exception
+            return Response(e.errors, status=e.status)
 
 
 @api_view(['POST'])
@@ -118,7 +129,7 @@ def user_detail(request, pk):
     data = request.data
     try:
         user = validations_utils.user_validation(pk)  # Validates if user exists or not.
-        validations_utils.user_token_validation(request.auth.user_id, pk)  # Validates user's Token authentication.
+        validations_utils.user_token_validation(request.user, pk)  # Validates user's Token authentication.
     except ValidationException as e:  # Generic exception
         return Response(e.errors, status=e.status)
     if request.method == 'GET':

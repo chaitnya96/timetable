@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+from django.utils.translation import ugettext_lazy as _
+
 
 from models import *
 
@@ -36,7 +38,6 @@ class CustomUserAdmin(UserAdmin):
 
 admin.site.register(User, CustomUserAdmin)
 admin.site.register(Faculty)
-admin.site.register(FacultyType)
 admin.site.register(Semester)
 admin.site.register(Subject)
 admin.site.register(Lecture)
