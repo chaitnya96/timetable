@@ -20,17 +20,6 @@ from serializers import UserProfileSerializer
 
 
 # Create your views here.
-@api_view(['POST'])
-@permission_classes((AllowAny,))
-def faculty(request):
-    if request.method == 'POST':
-        try:
-            data = request.data
-            faculty_data = utils.create_faculty(data)  # Creates genre with request data.
-            return Response(faculty_data, status=status.HTTP_201_CREATED)
-        except ValidationException as e:  # Generic exception
-            return Response(e.errors, status=e.status)
-
 
 @api_view(['POST'])
 @permission_classes((AllowAny,))
@@ -84,6 +73,7 @@ dd
 
 @api_view(['GET', 'PUT'])
 @permission_classes((UserPermissions, IsAuthenticated))
+@permission_classes(AllowAny)
 def user_detail(request, pk):
     """
     **Get or change the user profile data- Ignore**
@@ -334,3 +324,28 @@ def password_reset_done(request, pk):
          'response': response,
          'success_message': success_message}
     )
+
+
+@api_view(['POST'])
+@permission_classes((AllowAny,))
+def faculty(request):
+    if request.method == 'POST':
+        try:
+            data = request.data
+            faculty_data = utils.create_faculty(data)  # Creates genre with request data.
+            return Response(faculty_data, status=status.HTTP_201_CREATED)
+        except ValidationException as e:  # Generic exception
+            return Response(e.errors, status=e.status)
+
+
+@api_view(['POST'])
+@permission_classes((AllowAny,))
+def semester(request):
+    if request.method == 'POST':
+        try:
+            data = request.data
+            semester_data = utils.create_semester(data)  # Creates genre with request data.
+            return Response(semester_data, status=status.HTTP_201_CREATED)
+        except ValidationException as e:  # Generic exception
+            return Response(e.errors, status=e.status)
+

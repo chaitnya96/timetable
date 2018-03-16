@@ -1,9 +1,26 @@
 # generic
 
 from rest_framework import generics
+from rest_framework import mixins
+from rest_framework import status
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
 
 from sheduler.models import Semester, Faculty, Subject, Timetable
 from .serializers import SemesterSerializer, FacultySerializer, SubjectSerializer, TimetableSerializer
+
+
+class AllSubjectList(generics.ListCreateAPIView):
+    queryset = Subject.objects.all()
+    serializer_class = SubjectSerializer
+    permission_classes = (AllowAny,)
+
+
+class AllFacultyList(generics.ListCreateAPIView):
+    queryset = Faculty.objects.all()
+    serializer_class = FacultySerializer
+    permission_classes = (AllowAny,)
 
 
 class SemesterView(generics.RetrieveUpdateDestroyAPIView):  # DetailView CreateView FormView
@@ -15,6 +32,12 @@ class SemesterView(generics.RetrieveUpdateDestroyAPIView):  # DetailView CreateV
 
     def get_serializer_context(self, *args, **kwargs):
         return {"request": self.request}
+
+    @permission_classes((AllowAny,))
+    def get_all_sem(self, request, *args, **kwargs):
+        semesters = Semester.objects.all()
+        serialized_semesters = SemesterSerializer(self, semesters, many=True)
+        return Response(serialized_semesters.data, status=status.HTTP_200_OK)
 
 
 class FacultyView(generics.RetrieveUpdateDestroyAPIView):  # DetailView CreateView FormView
@@ -48,6 +71,5 @@ class TimetableView(generics.RetrieveUpdateDestroyAPIView):  # DetailView Create
 
     def get_serializer_context(self, *args, **kwargs):
         return {"request": self.request}
-
 
 

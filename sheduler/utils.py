@@ -12,7 +12,7 @@ from sheduler.models import User, UserResetPassword
 from serializers import UserSerializer, UserProfileSerializer
 import exceptions_utils
 from rest_framework import status
-from api.serializers import FacultySerializer
+from api.serializers import *
 
 
 def generate_token(user):
@@ -146,3 +146,14 @@ def create_faculty(data):
         return response
     else:
         raise exceptions_utils.ValidationException(faculty_serializer.errors, status.HTTP_400_BAD_REQUEST)
+
+
+def create_semester(data):
+    semester_serializer = SemesterSerializer(data=data)
+    if semester_serializer.is_valid():
+        faculty = semester_serializer.save()
+        keys = ['id', 'semester_number', 'division', 'class_location']
+        response = {k: v for k, v in semester_serializer.data.iteritems() if k in keys}
+        return response
+    else:
+        raise exceptions_utils.ValidationException(semester_serializer.errors, status.HTTP_400_BAD_REQUEST)
