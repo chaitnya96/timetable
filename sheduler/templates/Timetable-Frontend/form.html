@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>              
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="Absolute-Center is-Responsive">
+          <h3>Form</h3>
+          <div class="form">
+            <div class="control-group error">
+              <label class="control-label">Faculty name</label>
+              <div class="controls">
+                <input class="form-control form-input-styles" id="fname" type="text"  required>
+                <span id="errorfname" class="help-inline"></span>
+              </div>
+            </div>
+
+
+            <div class="control-group error">
+              <label class="control-label">semester number</label>
+              <div class="controls">
+                <input class="form-control form-input-styles" id="semnumber" type="text"  required>
+                <span id="errorsnumber" class="help-inline"></span>
+              </div>
+            </div>
+
+
+            <div class="control-group error">
+              <label class="control-label">division</label>
+              <div class="controls">
+                <input class="form-control form-input-styles" id="division" type="text"  required>
+                <span id="errordivision" class="help-inline"></span>
+              </div>
+            </div>
+
+
+            <div class="control-group error">
+              <label class="control-label">class number</label>
+              <div class="controls">
+                <input class="form-control form-input-styles" id="classnumber" type="text"  required>
+                <span id="errorclassnumber" class="help-inline"></span>
+              </div>
+            </div>
+
+
+            <button class="btn btn-default submit-form-button" id="submitForm" type="submit">Add</button>
+            <div id="successMessage"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<script src="form.js"></script>
+</body>
+</html>

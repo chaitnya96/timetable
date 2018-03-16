@@ -1,0 +1,235 @@
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>BMIIT</h1>
+
+		<hr>
+		<div class="container">
+			<div class="row">
+					<div class="form-group">
+<!---________________________________________________________day__________________________________________________________________-->
+					  	<div class="col-sm-1">
+						  	<label for="sel1">Day</label>
+						</div>
+						<div class="col-sm-2">  	
+						  	<select class="form-control" id="sel1">
+						  	  <option>Monday</option>
+						  	  <option>Tuesday</option>
+						  	  <option>Wednesday</option>
+						  	  <option>Thursday</option>
+						  	  <option>Friday</option>
+						  	  <option>Saturday</option>
+						 	</select>
+						</div>
+<!---___________________________________________________________semester______________________________________________________________-->
+						<div class="col-sm-1">
+							<label for="sel1">Semester</label>
+						</div>
+						<div class="col-sm-2"> 
+
+						  	<select class="form-control" id="sel1">
+						  	  <option>1</option>
+						  	  <option>2</option>
+						  	  <option>3</option>
+						  	  <option>4</option>
+						  	  <option>5</option>
+						  	  <option>6</option>
+						 	</select>
+						</div>
+<!---___________________________________________________________Division______________________________________________________________-->
+						<div class="col-sm-1">
+							<label for="sel1">Division</label>
+						</div>
+						<div class="col-sm-2"> 
+						  	<select class="form-control" id="sel1">
+						  	  <option>A</option>
+						  	  <option>B</option>
+						 	</select>
+						</div>
+					</div>
+			</div>
+			<br>
+<!---___________________________________________________________Class_Wing____________________________________________________________-->
+			<div class="row">		
+						<div class="col-sm-1">
+							<label for="sel1">Class</label>
+						</div>
+						<div class="col-sm-3"> 
+							<div class="col-sm-6"> 
+						  	<select class="form-control" id="sel1">
+						  	  <option>G</option>
+						  	  <option>F</option>
+						 	</select>
+						 	</div>
+						 	<div class="col-sm-6"> 
+						 	<select class="form-control">
+						  	  <option>201</option>
+						  	  <option>202</option>
+						  	  <option>206</option>
+						  	  <option>207</option>
+						  	  </select>
+						 	</div>
+						</div>
+				</div>
+			</div>
+		
+
+
+		<hr>
+
+		<div class="table-responsive">          
+			  <table class="table">
+			    <thead>
+<!---________________________________________________________lecture__________________________________________________________________-->
+			      <tr>
+			        <th>#</th>
+			        <th>Lecture 1</th>
+			        <th>Lecture 2</th>
+			        <th>Lecture 3</th>
+			        <th>Lecture 4</th>
+			        <th>Lecture 5</th>
+			        <th>Lecture 6</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+<!--_________________________________________________________subject__________________________________________________________________-->
+			      <tr>
+			        <th>Subject</th>
+			        <td>
+			        	<select id="list-of-subject-1" class="form-control ">
+						</select>
+			        </td>
+			        <td>
+			        	<select id="list-of-subject-2" class="form-control">
+						</select>
+			        </td>
+			        <td>
+			        	<select id="list-of-subject-3" class="form-control">
+						</select>
+			        </td>
+			        <td>
+			        	<select id="list-of-subject-4" class="form-control">
+						</select>
+			        </td>
+			        <td>
+			        	<select id="list-of-subject-5" class="form-control">
+						</select>
+			        </td>
+			        <td>
+			        	<select id="list-of-subject-6" class="form-control">
+						</select>
+			        </td>
+			      </tr>
+<!---________________________________________________________Faculty__________________________________________________________________-->
+			      <tr>
+			      	<th>Faculty</th>
+			      	<td>
+			      		<span id="list-of-Faculty-1" class="form-control" >
+						</span>
+			      	</td>
+			      	<td>
+			      		<select id="list-of-Faculty-2" class="form-control" >
+						</select>
+			      	</td>
+			      	<td>
+			      		<select id="list-of-Faculty-3" class="form-control" >
+						</select>
+			      	</td>
+			      	<td>
+			      		<select id="list-of-Faculty-4" class="form-control" >
+						</select>
+			      	</td>
+			      	<td>
+			      		<select id="list-of-Faculty-5" class="form-control" >
+						</select>
+			      	</td>
+			      	<td>
+			      		<select id="list-of-Faculty-6" class="form-control" >
+						</select>
+			      	</td>
+			      </tr>
+<!---________________________________________________________Lab__________________________________________________________________-->
+
+			      <tr>
+			      	<th>Lab</th>
+			      	<td>
+			      		<div class="checkbox">
+						 	<label><input type="checkbox" value="">Lab</label>
+						</div>
+			      	</td>
+			      	<td>
+			      		<div class="checkbox">
+						 	<label><input type="checkbox" value="">Lab</label>
+						</div>
+			      	</td>
+			      	<td>
+			      		<div class="checkbox">
+						 	<label><input type="checkbox" value="">Lab</label>
+						</div>
+			      	</td>
+			      	<td>
+			      		<div class="checkbox">
+						 	<label><input type="checkbox" value="">Lab</label>
+						</div>
+			      	</td>
+			      	<td>
+			      		<div class="checkbox">
+						 	<label><input type="checkbox" value="">Lab</label>
+						</div>
+			      	</td>
+			      	<td>
+			      		<div class="checkbox">
+						 	<label><input type="checkbox" value="">Lab</label>
+						</div>
+			      	</td>
+			      </tr>
+
+			      <tr>
+			      		<th>
+			      			LAB Floor 
+			      		</th>
+			      		<td>
+			      			<div class="radio">
+							 	<label><input type="radio" name="optradio">Floor 1 (D-104)</label>
+							</div>
+			      		</td>
+			      		<td>
+			      			<div class="radio">
+							 	<label><input type="radio" name="optradio">Floor 2 (D-204)</label>
+							</div>
+			      		</td>
+			      </tr>
+			      <tr>
+			      		<th>
+			      			Lab Faculty
+			      		</th>
+			      		<td>
+				      		<select id="list-of-Faculty-7" class="form-control" >
+							</select>
+			      		</td>
+			      		<td>
+				      		<select id="list-of-Faculty-8" class="form-control" >
+							</select>
+			      		</td>
+
+			      </tr>
+
+			    </tbody>
+			  </table>
+
+			   <button class="btn btn-default submit-form-button" id="submitForm" type="submit">Add Data</button>
+            	<div id="successMessage"></div>
+  		</div>
+	</div>
+	<script src="loadSubject.js"></script>
+</body>
+</html>
