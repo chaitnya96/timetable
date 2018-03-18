@@ -5,14 +5,14 @@ from sheduler import views
 
 internal_apis = [
     url(r'^users/$', views.user_registration),
+    url(r'^users/login/$', views.user_login),
     url(r'^users/(?P<pk>[0-9]+)/$', views.user_detail),
+    url(r'^ur$', views.UserProfileSerializer),
     url(r'^faculty/$', views.faculty),
     url(r'^semester/$', views.semester),
     ]
 
 urlpatterns = [
-    url(r'^users/login$', views.user_login),
-    url(r'^ur$', views.UserProfileSerializer),
     url(r'^users/(?P<pk>[0-9]+)/change_password/$', views.user_change_password),
     url(r'^password_reset/$', views.password_reset),
     url(r'^users/(?P<pk>[0-9]+)/password_reset/done/$', views.password_reset_done),

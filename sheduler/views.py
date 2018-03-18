@@ -73,7 +73,6 @@ dd
 
 @api_view(['GET', 'PUT'])
 @permission_classes((UserPermissions, IsAuthenticated))
-@permission_classes(AllowAny)
 def user_detail(request, pk):
     """
     **Get or change the user profile data- Ignore**
@@ -100,10 +99,14 @@ def user_detail(request, pk):
         2. `last_name`: String
         3. `contact_no`: Integer
         4. `email` : String
+
     * Requires only the changed data of the user and `email` along the changed
     parameters.
+
     * Possible HTTP status codes and JSON response:
+
         * `HTTP_200_OK` - User profile data in JSON format:
+
                 {
                   "email": String,
                   "id": Integer,
@@ -119,7 +122,8 @@ def user_detail(request, pk):
     data = request.data
     try:
         user = validations_utils.user_validation(pk)  # Validates if user exists or not.
-        validations_utils.user_token_validation(request.user, pk)  # Validates user's Token authentication.
+        token_user_id = validations_utils.user_token_validation(
+            request.auth.user_id, pk)  # Validates user's Token authentication.
     except ValidationException as e:  # Generic exception
         return Response(e.errors, status=e.status)
     if request.method == 'GET':
