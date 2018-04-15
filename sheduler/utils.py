@@ -59,6 +59,15 @@ def update_user(data, user):
         raise exceptions_utils.ValidationException(user_serializer.errors, status.HTTP_400_BAD_REQUEST)
 
 
+def update_limit(data, faculty):
+    faculty_serializer = FacultySerializer(data=data, instance=faculty)
+    if faculty_serializer.is_valid():
+        faculty_serializer.save()
+        return faculty_serializer.data
+    else:
+        raise exceptions_utils.ValidationException(faculty_serializer.errors, status.HTTP_400_BAD_REQUEST)
+
+
 def authenticate_user(user, data):
     if user:
         token = fetch_token(user)

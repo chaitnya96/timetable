@@ -13,7 +13,7 @@ import utils
 import validations_utils
 from sheduler import messages
 from sheduler.forms import ResetPasswordForm
-from sheduler.models import UserResetPassword
+from sheduler.models import UserResetPassword, Faculty
 from sheduler.permission import UserPermissions
 from exceptions_utils import ValidationException
 from serializers import UserProfileSerializer
@@ -344,6 +344,19 @@ def faculty(request):
 
 @api_view(['POST'])
 @permission_classes((AllowAny,))
+def update_faculty(request, pk):
+    data = request.data
+    fac_id = Faculty.objects.get(id=pk)
+    try:
+        if request.method == 'POST':
+            faculty_limit = utils.update_limit(data, faculty=fac_id)
+            return Response(faculty_limit, status=status.HTTP_200_OK)
+    except ValidationException as e:  # Generic exception
+        return Response(e.errors, status=e.status)
+
+
+@api_view(['POST'])
+@permission_classes((AllowAny,))
 def semester(request):
     if request.method == 'POST':
         try:
@@ -352,4 +365,3 @@ def semester(request):
             return Response(semester_data, status=status.HTTP_201_CREATED)
         except ValidationException as e:  # Generic exception
             return Response(e.errors, status=e.status)
-

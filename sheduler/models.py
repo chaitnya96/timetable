@@ -7,6 +7,7 @@ from django.db import models
 from rest_framework.authtoken.models import Token
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 # Create your models here.
@@ -119,9 +120,21 @@ class FacultyType(models.Model):
 
 
 class Faculty(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, blank=True)
+    # Associate_Professor = 'Associate Professor'
+    # Assistant_Professor = 'Assistant Professor'
+    # Teaching_Assistant = 'Teaching Assistant'
+    #
+    # choice = (
+    #     (Associate_Professor, 'Associate Professor'),
+    #     (Assistant_Professor, 'Assistant Professor'),
+    #     (Teaching_Assistant, 'Teaching Assistant'),
+    # )
+    # faculty_type = models.CharField(choices=choice, max_length=20, default=Teaching_Assistant)
+    lecture_limit = models.IntegerField(default=0, validators=[MaxValueValidator(30), MinValueValidator(0)])
+
+
     #   Qualification = models.CharField(max_length=300, default='MCA')
-    #   faculty_type = models.ForeignKey(FacultyType)
 
     def __str__(self):
         return self.name
@@ -133,7 +146,7 @@ class Semester(models.Model):
     class_location = models.CharField(max_length=50)
 
     def __str__(self):
-        return 'Semester-'+str(
+        return 'Semester-' + str(
             self.semester_number) + ', ' + 'Division-' + str(
             self.division) + ', ' + str(self.class_location)
 
@@ -143,6 +156,7 @@ class Subject(models.Model):
     subject_name = models.CharField(max_length=250)
     semester = models.IntegerField()
     faculty = models.ForeignKey(Faculty)
+
     #   credits = models.IntegerField(default=0)
 
     def __str__(self):
@@ -182,6 +196,30 @@ class Timetable(models.Model):
     lecture = models.ForeignKey(Lecture)
     semester = models.ForeignKey(Semester)
     subject = models.ForeignKey(Subject)
+    is_lab = models.BooleanField(default=False)
+    AB1 = '1A-1B'
+    AC1 = '1A-1C'
+    AD1 = '1A-1D'
+    BC1 = '1B-1C'
+    BD1 = '1B-1D'
+    CD1 = '1C-1D'
+    AB2 = '2A-2B'
+    AC2 = '2A-2C'
+    AD2 = '2A-2D'
+    BC2 = '2B-2C'
+    BD2 = '2B-2D'
+    CD2 = '2C-2D'
+
+    lab_choice = (
+        (AB1, '1A-1B'), (AC1, '1A-1C'), (AD1, '1A-1D'), (BC1, '1B-1C'), (BD1, '1B-1D'), (CD1, '1C-1D'),
+        (AB2, '2A-2B'), (AC2, '2A-2C'), (AD2, '2A-2D'), (BC2, '2B-2C'), (BD2, '2B-2D'), (CD2, '2C-2D')
+    )
+    lab_class = models.CharField(
+        choices=lab_choice,
+        max_length=6,
+        blank=True
+    )
+    lab_faculty = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return str(self.semester) + self.day + str(self.lecture) + str(self.subject)

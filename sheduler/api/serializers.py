@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from sheduler.models import Semester, Faculty, Subject, Timetable
+from sheduler.models import Semester, Faculty, Subject, Timetable,Lecture
 
 
 class SemesterSerializer(serializers.ModelSerializer):
@@ -24,6 +24,12 @@ class SubjectSerializer(serializers.ModelSerializer):
 class TimetableSerializer(serializers.ModelSerializer):
     class Meta:
         model = Timetable
+        fields = '__all__'
+
+
+class LectureSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Lecture
         fields = '__all__'
 
 

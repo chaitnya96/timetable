@@ -21,6 +21,9 @@ def email_validation(data):
         raise exceptions_utils.ValidationException(messages.INVALID_EMAIL_ADDRESS, status.HTTP_400_BAD_REQUEST)
 
 
+
+
+
 def password_validation(data):
     try:
         password = data['password']

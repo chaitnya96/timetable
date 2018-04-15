@@ -10,7 +10,8 @@ internal_apis = [
     url(r'^ur$', views.UserProfileSerializer),
     url(r'^faculty/$', views.faculty),
     url(r'^semester/$', views.semester),
-    ]
+    url(r'^faculty-limit/(?P<pk>[0-9]+)$', views.update_faculty)
+]
 
 urlpatterns = [
     url(r'^users/(?P<pk>[0-9]+)/change_password/$', views.user_change_password),
@@ -26,4 +27,3 @@ urlpatterns += [
                                namespace='rest_framework')),
     url(r'^api/', include('sheduler.api.urls')),
 ]
-

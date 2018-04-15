@@ -7,8 +7,8 @@ from rest_framework.decorators import permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
-from sheduler.models import Semester, Faculty, Subject, Timetable
-from .serializers import SemesterSerializer, FacultySerializer, SubjectSerializer, TimetableSerializer
+from sheduler.models import *
+from .serializers import *
 
 
 class AllSubjectList(generics.ListCreateAPIView):
@@ -20,6 +20,24 @@ class AllSubjectList(generics.ListCreateAPIView):
 class AllFacultyList(generics.ListCreateAPIView):
     queryset = Faculty.objects.all()
     serializer_class = FacultySerializer
+    permission_classes = (AllowAny,)
+
+
+class AllSemesterList(generics.ListCreateAPIView):
+    queryset = Semester.objects.all()
+    serializer_class = SemesterSerializer
+    permission_classes = (AllowAny,)
+
+
+class AllLectureList(generics.ListCreateAPIView):
+    queryset = Lecture.objects.all()
+    serializer_class = LectureSerializer
+    permission_classes = (AllowAny,)
+
+
+class AllTimetableList(generics.ListCreateAPIView):
+    queryset = Timetable.objects.all()
+    serializer_class = TimetableSerializer
     permission_classes = (AllowAny,)
 
 
