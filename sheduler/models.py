@@ -120,7 +120,7 @@ class FacultyType(models.Model):
 
 
 class Faculty(models.Model):
-    name = models.CharField(max_length=200, blank=True)
+    name = models.CharField(max_length=200, blank=False)
     # Associate_Professor = 'Associate Professor'
     # Assistant_Professor = 'Assistant Professor'
     # Teaching_Assistant = 'Teaching Assistant'
