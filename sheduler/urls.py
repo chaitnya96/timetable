@@ -1,7 +1,7 @@
 from django.conf.urls import url, include
 from rest_framework.urlpatterns import format_suffix_patterns
 
-from sheduler import views
+import views
 
 internal_apis = [
     url(r'^users/$', views.user_registration),

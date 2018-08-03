@@ -9,7 +9,7 @@ from django.template.loader import get_template
 from django.conf import settings
 from sheduler import messages
 from sheduler.models import User, UserResetPassword
-from serializers import UserSerializer, UserProfileSerializer
+from .serializers import UserSerializer, UserProfileSerializer
 import exceptions_utils
 from rest_framework import status
 from api.serializers import *
