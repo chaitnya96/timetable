@@ -6,7 +6,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import ugettext_lazy as _
 
 
-from models import *
+from .models import *
 
 
 # Register your models here.
