@@ -4,6 +4,7 @@ amqp
 anyjson
 appdirs
 Babel
+whitenoise
 backports-abc
 backports.ssl-match-hostname
 billiard
