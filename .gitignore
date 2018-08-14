@@ -3,6 +3,10 @@
 *.egg-info
 .env
 .venv
+/static
+*~
+__pycache__
+.DS_Store
 
 # Django
 *.mo
